@@ -1,0 +1,24 @@
+# Neovim state
+*.swp
+*.swo
+*.tmp
+*.bak
+
+# Cache and plugin directories
+local/
+state/
+cache/
+site/
+plugged/
+pack/
+lazy/
+
+# Neovim specific
+/.netrwhist
+
+# OS-specific
+.DS_Store
+
+# If you keep secret files locally
+secrets.lua
+.env
