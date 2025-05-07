@@ -17,14 +17,15 @@ autocmd('FileType', {
   group = indentscope,
   pattern = {
     'help',
-    'alpha',       -- For alpha-nvim
-    'dashboard',   -- For dashboard-nvim
+    'alpha', -- For alpha-nvim
+    'dashboard', -- For dashboard-nvim
     'neo-tree',
     'Trouble',
     'trouble',
     'notify',
     'lazy',
     'mason',
+    'startup',
   },
   desc = 'Disable indentscope for specific filetypes',
   callback = function()
@@ -41,13 +42,13 @@ autocmd('BufReadPost', {
   callback = function()
     local ignore_ft = { 'gitcommit', 'gitrebase', 'xxd' }
     local buf_ft = vim.bo.filetype
-    
+
     if vim.tbl_contains(ignore_ft, buf_ft) then
       return
     end
 
-    local mark_line = vim.fn.line("'\"")
-    local last_line = vim.fn.line('$')
+    local mark_line = vim.fn.line '\'"'
+    local last_line = vim.fn.line '$'
 
     if mark_line > 1 and mark_line <= last_line then
       pcall(vim.cmd, 'normal! g`"')

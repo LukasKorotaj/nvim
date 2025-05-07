@@ -5,7 +5,7 @@ vim.g.maplocalleader = '\\'
 local keymap = vim.keymap.set
 
 -- Clear highlights
-keymap('n', '<leader>nh', ':nohlsearch<CR>', { desc = 'Clear highlights' })
+keymap('n', '<Esc>', ':nohlsearch<CR>', { desc = 'Clear highlights' })
 
 -- Open diagnostics
 keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', { desc = 'Open diagnostics' })
@@ -24,7 +24,7 @@ keymap('n', '<C-l>', '<C-w>l')
 keymap('n', '<leader>o', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
 -- Diagnostic navigation
 local diagnostic_goto = function(next, severity)
-  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+  local go = next and vim.diagnostic.jump or vim.diagnostic.jump
   severity = severity and vim.diagnostic.severity[severity] or nil
   return function()
     go { severity = severity }
@@ -56,6 +56,8 @@ keymap('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Enter Normal Mode in Terminal
 -- File Browser
 keymap('n', '<leader>fe', ':Telescope file_browser<CR>')
 
+-- Color Scheme
+keymap('n', '<leader>fc', ':Telescope colorscheme<CR>')
 -- open file_browser with the path of the current buffer
 keymap('n', '<leader>fE', ':Telescope file_browser path=%:p:h select_buffer=true<CR>')
 

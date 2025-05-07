@@ -204,7 +204,10 @@ return {
           sorting_strategy = 'ascending',
         },
         extensions = {
-          file_browser = {},
+          file_browser = {
+            hidden = true,
+            grouped = true,
+          },
           fzf = {
             fuzzy = true,
           },

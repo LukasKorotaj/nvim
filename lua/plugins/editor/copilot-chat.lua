@@ -12,6 +12,7 @@ return {
       answer_header = '## Copilot ',
       error_header = '## Error ',
       max_tokens = 300,
+      mappings = {},
     },
   },
   {

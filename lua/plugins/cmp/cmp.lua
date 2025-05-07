@@ -20,10 +20,37 @@ return {
       opts = vim.tbl_deep_extend('force', opts, {
         formatting = {
           format = lspkind.cmp_format {
-            mode = 'symbol',
+            mode = 'symbol_text',
             maxwidth = 50,
             ellipsis_char = '...',
             show_labelDetails = true,
+            symbol_map = {
+              Text = '󰉿',
+              Method = '󰆧',
+              Function = '󰡱',
+              Constructor = '',
+              Field = '󰜢',
+              Variable = '󰫧',
+              Class = '󰠱',
+              Interface = '',
+              Module = '',
+              Property = '󰜢',
+              Unit = '󰑭',
+              Value = '󰎠',
+              Enum = '',
+              Keyword = '󰌋',
+              Snippet = '',
+              Color = '󰏘',
+              File = '󰈙',
+              Reference = '󰈇',
+              Folder = '󰉋',
+              EnumMember = '',
+              Constant = 'π',
+              Struct = '󰙅',
+              Event = '',
+              Operator = '󰆕',
+              TypeParameter = '',
+            },
           },
         },
         snippet = {
@@ -37,6 +64,8 @@ return {
           { name = 'emoji' },
           { name = 'path' },
           { name = 'buffer', keyword_length = 3 },
+          { name = 'r_language_server' },
+          { name = 'texlab' },
         },
         mapping = cmp.mapping.preset.insert {
           ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -47,14 +76,8 @@ return {
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<C-y>'] = cmp.mapping.confirm { select = true },
         },
-        window = {
-          completion = {
-            winhighlight = 'Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None',
-            max_height = 10, -- Set max height here
-          },
-          documentation = cmp.config.window.bordered {
-            max_height = 15,
-          },
+        performance = {
+          max_view_entries = 6,
         },
         experimental = {
           ghost_text = false,
