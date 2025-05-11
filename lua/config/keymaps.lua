@@ -41,6 +41,10 @@ keymap('n', '[w', diagnostic_goto(false, 'WARN'), { desc = 'Prev Warning' })
 -- Tabs
 keymap('n', '<tab><tab>', '<cmd>tabnew<cr>', { desc = 'New Tab' })
 
+-- cycle Neovim tabs with Ctrl-Shift-H/L
+keymap('n', '<C-S-h>', '<cmd>tabprevious<CR>', { noremap = true, silent = true })
+keymap('n', '<C-S-l>', '<cmd>tabnext<CR>', { noremap = true, silent = true })
+
 -- CopilotChat
 keymap('n', '<leader>c', '', { desc = '[C]opilot Chat' })
 keymap('n', '<leader>ct', ':CopilotChatToggle<CR>', { desc = 'Toggle Copilot Chat Window' })
@@ -52,6 +56,17 @@ keymap('n', '<leader>cp', ':CopilotChatTests<CR>', { desc = 'Add tests for my co
 
 -- Terminal
 keymap('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Enter Normal Mode in Terminal' })
+keymap('n', '<leader>tt', '<cmd>ToggleTerm<CR>', { desc = '[T]oggle Terminal' })
+
+--java
+keymap('n', '<leader>j', '', { desc = 'Open [J]ava options' })
+keymap('n', '<leader>jr', '<cmd>JavaRunnerRunMain<CR>', { desc = '[R]un Main' })
+keymap('n', '<leader>js', '<cmd>JavaRunnerStopMain<CR>', { desc = '[S]top Main' })
+keymap('n', '<leader>jt', '<cmd>JavaRunnerToggleLogs<CR>', { desc = '[T]toggle the ugly window' })
+keymap('n', '<leader>jc', '<cmd>JavaTestRunCurrentClass<CR>', { desc = 'Test Current [C]lass' })
+keymap('n', '<leader>jm', '<cmd>JavaTestRunCurrentMethod<CR>', { desc = 'Test Current [M]ethod' })
+keymap('n', '<leader>jv', '<cmd>JavaTestViewLastReport<CR>', { desc = 'Test [V]iew Last Report' })
+keymap('n', '<leader>jb', '<cmd>JavaBuildBuildWorkspace<CR>', { desc = 'Run Full Workspace [B]uild' })
 
 -- File Browser
 keymap('n', '<leader>fe', ':Telescope file_browser<CR>')

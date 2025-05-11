@@ -18,6 +18,8 @@ return {
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       -- R formatter
       r = { 'air' },
+      -- java
+      java = { 'google-java-format' },
     },
   },
 }

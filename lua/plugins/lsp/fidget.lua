@@ -6,6 +6,9 @@ return {
         render_limit = 3,
         done_icon = '💕',
       },
+      progress = {
+        suppress_on_insert = true,
+      },
     },
   },
 }

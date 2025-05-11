@@ -25,17 +25,64 @@ return {
           'r_language_server',
           -- Add others as needed
         },
+        handlers = {
+          function(server_name)
+            lspconfig[server_name].setup {
+              on_attach = on_attach,
+              capabilities = capabilities,
+            }
+          end,
+
+          -- Special Lua config
+          lua_ls = function()
+            require('neodev').setup()
+            lspconfig.lua_ls.setup {
+              settings = {
+                Lua = {
+                  workspace = { checkThirdParty = false },
+                  telemetry = { enable = false },
+                },
+              },
+            }
+          end,
+
+          jdtls = function()
+            require('java').setup {}
+
+            require('lspconfig').jdtls.setup {
+              settings = {
+                java = {
+                  signatureHelp = {
+                    enabled = true, -- Enable signature help
+                    description = {
+                      enabled = true,
+                    },
+                  },
+                },
+                root_markers = {
+                  'settings.gradle',
+                  'settings.gradle.kts',
+                  'pom.xml',
+                  'build.gradle',
+                  'mvnw',
+                  'gradlew',
+                  'build.gradle',
+                  'build.gradle.kts',
+                },
+              },
+            }
+          end,
+        },
       }
     end,
   },
-
-  -- LSP Configurations
   {
     'neovim/nvim-lspconfig',
     event = 'VeryLazy',
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
       'folke/neodev.nvim',
+      'nvim-java/nvim-java',
     },
     config = function()
       local lspconfig = require 'lspconfig'
@@ -58,29 +105,6 @@ return {
           vim.lsp.buf.format { async = true }
         end, opts)
       end
-
-      -- Setup default handlers
-      require('mason-lspconfig').setup_handlers {
-        function(server_name)
-          lspconfig[server_name].setup {
-            on_attach = on_attach,
-            capabilities = capabilities,
-          }
-        end,
-
-        -- Special Lua config
-        ['lua_ls'] = function()
-          require('neodev').setup()
-          lspconfig.lua_ls.setup {
-            settings = {
-              Lua = {
-                workspace = { checkThirdParty = false },
-                telemetry = { enable = false },
-              },
-            },
-          }
-        end,
-      }
 
       -- Global LSP settings
       vim.diagnostic.config {
