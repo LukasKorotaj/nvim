@@ -79,3 +79,26 @@ keymap('n', '<leader>fE', ':Telescope file_browser path=%:p:h select_buffer=true
 -- Open full diagnostics list with Trouble.nvim (if installed)
 keymap('n', '<leader>td', '<cmd>TroubleToggle document_diagnostics<cr>', { desc = 'Document Diagnostics (Trouble)' })
 keymap('n', '<leader>tw', '<cmd>TroubleToggle workspace_diagnostics<cr>', { desc = 'Workspace Diagnostics (Trouble)' })
+
+-- Telekasten
+keymap('n', '<leader>zi', '<cmd>Telekasten insert_link<CR>')
+keymap('n', '<leader>zp', '<cmd>Telekasten panel<CR>')
+keymap('n', '<leader>zf', '<cmd>Telekasten find_notes<CR>')
+keymap('n', '<leader>zg', '<cmd>Telekasten search_notes<CR>')
+keymap('n', '<leader>zd', '<cmd>Telekasten goto_today<CR>')
+keymap('n', '<leader>zz', '<cmd>Telekasten follow_link<CR>')
+keymap('n', '<leader>zn', '<cmd>Telekasten new_note<CR>')
+keymap('n', '<leader>zc', '<cmd>Telekasten show_calendar<CR>')
+keymap('n', '<leader>zb', '<cmd>Telekasten show_backlinks<CR>')
+keymap('n', '<leader>zI', '<cmd>Telekasten insert_img_link<CR>')
+
+-- Markdown Preview
+keymap('n', '<leader>mt', '<cmd>MarkdownPreviewToggle<CR>')
+
+-- Lsp Signature
+keymap('i', '<C-s>', function()
+  require('lsp_signature').toggle_float_win()
+end, { silent = true, noremap = true, desc = 'toggle signature' })
+
+-- math
+keymap('n', '<leader>mm', ':ToggleMathMode<CR>', { desc = 'Toggle Math Mode' })
