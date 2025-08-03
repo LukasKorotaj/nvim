@@ -81,16 +81,16 @@ keymap('n', '<leader>td', '<cmd>TroubleToggle document_diagnostics<cr>', { desc 
 keymap('n', '<leader>tw', '<cmd>TroubleToggle workspace_diagnostics<cr>', { desc = 'Workspace Diagnostics (Trouble)' })
 
 -- Telekasten
-keymap('n', '<leader>zi', '<cmd>Telekasten insert_link<CR>')
-keymap('n', '<leader>zp', '<cmd>Telekasten panel<CR>')
-keymap('n', '<leader>zf', '<cmd>Telekasten find_notes<CR>')
-keymap('n', '<leader>zg', '<cmd>Telekasten search_notes<CR>')
-keymap('n', '<leader>zd', '<cmd>Telekasten goto_today<CR>')
-keymap('n', '<leader>zz', '<cmd>Telekasten follow_link<CR>')
-keymap('n', '<leader>zn', '<cmd>Telekasten new_note<CR>')
-keymap('n', '<leader>zc', '<cmd>Telekasten show_calendar<CR>')
-keymap('n', '<leader>zb', '<cmd>Telekasten show_backlinks<CR>')
-keymap('n', '<leader>zI', '<cmd>Telekasten insert_img_link<CR>')
+--keymap('n', '<leader>zi', '<cmd>Telekasten insert_link<CR>')
+--keymap('n', '<leader>zp', '<cmd>Telekasten panel<CR>')
+--keymap('n', '<leader>zf', '<cmd>Telekasten find_notes<CR>')
+--keymap('n', '<leader>zg', '<cmd>Telekasten search_notes<CR>')
+--keymap('n', '<leader>zd', '<cmd>Telekasten goto_today<CR>')
+--keymap('n', '<leader>zz', '<cmd>Telekasten follow_link<CR>')
+--keymap('n', '<leader>zn', '<cmd>Telekasten new_note<CR>')
+--keymap('n', '<leader>zc', '<cmd>Telekasten show_calendar<CR>')
+--keymap('n', '<leader>zb', '<cmd>Telekasten show_backlinks<CR>')
+--keymap('n', '<leader>zI', '<cmd>Telekasten insert_img_link<CR>')
 
 -- Markdown Preview
 keymap('n', '<leader>mt', '<cmd>MarkdownPreviewToggle<CR>')

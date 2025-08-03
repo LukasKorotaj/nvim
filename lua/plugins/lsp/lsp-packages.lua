@@ -39,9 +39,9 @@ return {
       end
 
       mason_lspconfig.setup {
-        ensure_installed = { 'lua_ls', 'bashls', 'r_language_server' },
+        ensure_installed = { 'jdtls', 'lua_ls', 'bashls', 'r_language_server' },
         handlers = {
-          -- default handler for all installed servers except Java
+          -- default handler for all installed servers
           function(server_name)
             require('lspconfig')[server_name].setup {
               on_attach = on_attach,
@@ -60,57 +60,17 @@ return {
               },
             }
           end,
+          ['jdtls'] = function()
+            lspconfig.jdtls.setup {
+              on_attach = on_attach,
+              capabilities = require('cmp_nvim_lsp').default_capabilities(),
+            }
+          end,
         },
       }
     end,
   },
 
-  {
-    'nvim-java/nvim-java',
-    ft = 'java', -- only load for Java files
-    dependencies = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-    },
-    config = function()
-      local on_attach = function(client, bufnr)
-        local opts = { buffer = bufnr, silent = true }
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-        vim.keymap.set('n', '<leader>f', function()
-          vim.lsp.buf.format { async = true }
-        end, opts)
-      end
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-      -- 2) Initialize nvim-java (installs jdtls, plugins, neoconf, etc.)
-      require('java').setup {
-        jdtls = {
-          version = '1.46.1',
-        },
-      }
-
-      -- 3) Hook it into lspconfig
-      require('lspconfig').jdtls.setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        settings = {
-          java = {
-            signatureHelp = {
-              enabled = true,
-              description = { enabled = true },
-            },
-            -- any other java.* settings
-          },
-        },
-      }
-    end,
-  },
   {
     'neovim/nvim-lspconfig',
     event = 'VeryLazy',
@@ -123,19 +83,6 @@ return {
         update_in_insert = false,
         severity_sort = true,
         float = { border = 'rounded', source = 'always', header = '', prefix = '' },
-      }
-    end,
-  },
-
-  -- LSP Progress Notifications
-  {
-    'j-hui/fidget.nvim',
-    tag = 'legacy',
-    event = 'LspAttach',
-    config = function()
-      require('fidget').setup {
-        text = { spinner = 'dots', done = '✓' },
-        window = { blend = 0, border = 'rounded' },
       }
     end,
   },
