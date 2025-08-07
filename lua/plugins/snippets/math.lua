@@ -1,5 +1,8 @@
 return {
-  'LukasKorotaj/luasnip-markdown-snippets.nvim',
+  --'LukasKorotaj/luasnip-markdown-snippets.nvim',
+  dir = '~/random/luasnip-markdown-snippets.nvim/',
+  dev = true,
+  name = 'MDsnip',
   config = function()
     local ls = require 'luasnip'
     local t = ls.text_node

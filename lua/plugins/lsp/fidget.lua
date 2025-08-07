@@ -2,11 +2,11 @@ return {
   {
     'j-hui/fidget.nvim',
     opts = {
-      display = {
-        render_limit = 3,
-        done_icon = '💕',
-      },
       progress = {
+        display = {
+          render_limit = 3,
+          done_icon = '💕',
+        },
         suppress_on_insert = true,
       },
     },
