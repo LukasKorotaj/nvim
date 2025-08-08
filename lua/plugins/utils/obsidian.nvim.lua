@@ -1,5 +1,5 @@
 return {
-  'epwalsh/obsidian.nvim',
+  'obsidian-nvim/obsidian.nvim',
   version = '*', -- recommended, use latest release instead of latest commit
   lazy = true,
   ft = 'markdown',
@@ -25,10 +25,13 @@ return {
       },
     },
     completion = {
-      nvim_cmp = true,
+      nvim_cmp = false,
+      blink = true,
       min_chars = 0,
+      create_new = false,
     },
     new_notes_location = 'current_dir',
     disable_frontmatter = true,
+    legacy_commands = false,
   },
 }
