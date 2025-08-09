@@ -1,5 +1,8 @@
 -- Set clipboard to use system clipboard
 vim.opt.clipboard = 'unnamedplus'
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.wb = false
 vim.opt.showtabline = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
@@ -25,6 +28,7 @@ vim.opt.splitbelow = true
 vim.opt.scrolloff = 10
 vim.opt.completeopt = { 'menuone', 'noinsert', 'noselect', 'popup' }
 vim.opt.conceallevel = 1
+vim.opt.nrformats = {}
 
 -- neovide
 vim.g.neovide_cursor_animation_length = 0.0
