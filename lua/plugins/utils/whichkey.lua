@@ -4,10 +4,11 @@ return {
     opts = {
       plugins = {
         marks = false,
-        registers = false,
+        registers = true,
+        spelling = true,
       },
       icons = {
-        group = "󰋼",
+        group = '󰋼',
       },
     },
   },

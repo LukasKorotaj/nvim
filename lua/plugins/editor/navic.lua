@@ -8,7 +8,7 @@ return {
       highlight = true, -- Enable syntax highlighting
       depth_limit = 5, -- Max depth for breadcrumbs
       icons = {
-        File = ' ', -- File icon
+        File = ' ', -- File icon
         Module = ' ', -- Module/Namespace
         Namespace = '󰌗 ', -- Namespace
         Package = ' ', -- Package

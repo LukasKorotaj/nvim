@@ -1,74 +1,74 @@
 return {
-  { -- Highlight, edit, and navigate code
+  -- nvim-treesitter (core)
+  {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+    branch = 'master', -- or "main" (if you want bleeding-edge)
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = { 'lua', 'python', 'javascript', 'typescript', 'bash', 'markdown', 'markdown_inline', 'java' }, -- your languages
+      sync_install = false,
       auto_install = true,
       highlight = {
         enable = true,
-        disable = { 'markdown', 'markdown_inline' },
-        additional_vim_regex_highlighting = { 'ruby' },
+        additional_vim_regex_highlighting = false, -- disable legacy regex highlighting
       },
-      indent = { enable = true, disable = { 'ruby' } },
+      indent = { enable = true }, -- better indentation
     },
+    config = function(_, opts)
+      require('nvim-treesitter.configs').setup(opts)
+    end,
   },
-  -- NOTE: Commenting this out as I have no fucking idea when i put this in
-  -- or when did I ever use this.
-  --{
-  --  'nvim-treesitter/nvim-treesitter-textobjects',
-  --  dependencies = { 'nvim-treesitter/nvim-treesitter' },
-  --  config = function()
-  --    require('nvim-treesitter.configs').setup {
-  --      textobjects = {
-  --        select = {
-  --          enable = true,
-  --          lookahead = true,
-  --          keymaps = {
-  --            ['aa'] = '@parameter.outer',
-  --            ['af'] = '@function.outer',
-  --            ['if'] = '@function.inner',
-  --            ['ia'] = '@parameter.inner',
-  --            ['ac'] = '@class.outer',
-  --            ['ic'] = '@class.inner',
-  --            ['ii'] = '@conditional.inner',
-  --            ['ai'] = '@conditional.outer',
-  --            ['il'] = '@loop.inner',
-  --            ['al'] = '@loop.outer',
-  --            ['at'] = '@comment.outer',
-  --          },
-  --        },
-  --        move = {
-  --          enable = true,
-  --          goto_next_start = {
-  --            [']m'] = '@function.outer',
-  --            [']]'] = '@class.outer',
-  --          },
-  --          goto_next_end = {
-  --            [']M'] = '@function.outer',
-  --            [']['] = '@class.outer',
-  --          },
-  --          goto_previous_start = {
-  --            ['[m'] = '@function.outer',
-  --            ['[['] = '@class.outer',
-  --          },
-  --          goto_previous_end = {
-  --            ['[M'] = '@function.outer',
-  --            ['[]'] = '@class.outer',
-  --          },
-  --        },
-  --        swap = {
-  --          enable = true,
-  --          swap_next = {
-  --            ['<leader>a'] = '@parameter.inner',
-  --          },
-  --          swap_previous = {
-  --            ['<leader>A'] = '@parameter.outer',
-  --          },
-  --        },
-  --      },
-  --    }
-  --  end,
-  --},
+
+  -- nvim-treesitter-textobjects (extended text objects)
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    opts = {
+      textobjects = {
+        select = {
+          enable = true,
+          lookahead = true, -- automatically jump forward to next textobj
+          keymaps = {
+            -- You can use the capture groups defined in textobjects.scm
+            ['af'] = '@function.outer', -- around function
+            ['if'] = '@function.inner', -- inside function
+            ['ac'] = '@class.outer', -- around class
+            ['ic'] = '@class.inner', -- inside class
+          },
+        },
+        move = {
+          enable = true,
+          set_jumps = true, -- whether to set jumps in the jumplist
+          goto_next_start = {
+            [']m'] = '@function.outer', -- jump to next function start
+            [']]'] = '@class.outer', -- jump to next class start
+          },
+          goto_next_end = {
+            [']M'] = '@function.outer', -- jump to next function end
+            [']['] = '@class.outer', -- jump to next class end
+          },
+          goto_previous_start = {
+            ['[m'] = '@function.outer', -- jump to previous function start
+            ['[['] = '@class.outer', -- jump to previous class start
+          },
+          goto_previous_end = {
+            ['[M'] = '@function.outer', -- jump to previous function end
+            ['[]'] = '@class.outer', -- jump to previous class end
+          },
+        },
+        swap = {
+          enable = true,
+          swap_next = {
+            ['<leader>a'] = '@parameter.inner', -- swap next parameter
+          },
+          swap_previous = {
+            ['<leader>A'] = '@parameter.inner', -- swap previous parameter
+          },
+        },
+      },
+    },
+    config = function(_, opts)
+      require('nvim-treesitter.configs').setup(opts)
+    end,
+  },
 }
