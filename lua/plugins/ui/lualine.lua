@@ -39,7 +39,6 @@ return {
             },
           },
           { 'navic' },
-          { require('NeoComposer.ui').status_recording },
         },
         lualine_x = {
           {
