@@ -20,6 +20,10 @@ return {
   opts = {
     workspaces = {
       {
+        name = 'Planner',
+        path = '/home/lukas/Sync/Planner/',
+      },
+      {
         name = 'telekasten',
         path = '/home/lukas/Sync/telekasten/',
       },
