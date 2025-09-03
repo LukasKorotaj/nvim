@@ -16,7 +16,6 @@ return {
     TARGET DECK: {}
     {}
     Back: {}
-
     END
     ]],
         {
