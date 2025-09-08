@@ -19,6 +19,15 @@ return {
 
     completion = {
       documentation = { auto_show = false, auto_show_delay_ms = 500 },
+      trigger = {
+        show_on_backspace = true,
+      },
+      list = {
+        max_items = 20,
+      },
+      menu = {
+        auto_show = true,
+      },
     },
 
     sources = {
@@ -26,6 +35,10 @@ return {
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
       },
+      min_keyword_length = 2,
+    },
+    term = {
+      enabled = true,
     },
 
     snippets = { preset = 'luasnip' },

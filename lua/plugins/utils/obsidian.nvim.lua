@@ -38,11 +38,17 @@ return {
       min_chars = 1,
       create_new = true,
     },
+    ui = {
+      enable = false,
+    },
     new_notes_location = 'current_dir',
     disable_frontmatter = true,
     legacy_commands = false,
     templates = {
       folder = 'Templates',
+    },
+    footer = {
+      enabled = false,
     },
     note_id_func = function(title)
       -- Create note IDs in a Zettelkasten format with a readable timestamp
