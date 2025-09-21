@@ -36,12 +36,13 @@ return {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
       },
       min_keyword_length = 2,
+      max_items = 10,
     },
     term = {
       enabled = true,
     },
 
-    snippets = { preset = 'luasnip' },
+    --snippets = { preset = 'luasnip' },
 
     -- Blink.cmp includes an optional, recommended rust fuzzy matcher,
     -- which automatically downloads a prebuilt binary when enabled.
