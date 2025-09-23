@@ -23,7 +23,7 @@ return {
         show_on_backspace = true,
       },
       list = {
-        max_items = 20,
+        max_items = 100,
       },
       menu = {
         auto_show = true,
@@ -36,7 +36,7 @@ return {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
       },
       min_keyword_length = 2,
-      max_items = 10,
+      max_items = 100,
     },
     term = {
       enabled = true,

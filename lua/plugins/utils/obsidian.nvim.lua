@@ -20,22 +20,18 @@ return {
   opts = {
     workspaces = {
       {
+        name = 'Study',
+        path = '/home/lukas/Sync/Study/',
+      },
+      {
         name = 'Planner',
         path = '/home/lukas/Sync/Planner/',
-      },
-      {
-        name = 'telekasten',
-        path = '/home/lukas/Sync/telekasten/',
-      },
-      {
-        name = 'chaos',
-        path = '/home/lukas/Sync/chaos/',
       },
     },
     completion = {
       nvim_cmp = false,
       blink = true,
-      min_chars = 1,
+      min_chars = 2,
       create_new = true,
     },
     ui = {
@@ -71,12 +67,6 @@ return {
       return timestamp .. '-' .. suffix
     end,
 
-    note_path_func = function(spec)
-      -- This is equivalent to the default behavior.
-      local path = spec.dir / tostring(spec.id)
-      return path:with_suffix '.md'
-    end,
-
     note_frontmatter_func = function(note)
       if note.title then
         note:add_alias(note.title)
@@ -97,14 +87,6 @@ return {
       end
 
       return out
-    end,
-
-    wiki_link_func = function(opts)
-      -- opts.path: the relative path of the note file (e.g., 202508151430-my-note.md)
-      -- opts.title: the human-readable note title
-      local path = opts.path
-      local title = opts.title or path
-      return string.format('[[%s|%s]]', path, title)
     end,
   },
 }
