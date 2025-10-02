@@ -55,3 +55,31 @@ autocmd('BufReadPost', {
     end
   end,
 })
+
+local theme_file = vim.fn.stdpath 'config' .. '/lua/config/theme.txt'
+
+-- Function to read theme and apply it
+local function apply_theme()
+  vim.schedule(function() -- defer to avoid timing issues
+    local theme = vim.fn.readfile(theme_file)[1]
+    local mode = vim.fn.readfile(theme_file)[2]
+    if theme and theme ~= '' then
+      vim.o.background = mode
+      vim.cmd.colorscheme(theme)
+    end
+  end)
+end
+
+-- Watcher using luv.fs_event
+local watcher = vim.loop.new_fs_event()
+watcher:start(
+  theme_file,
+  {},
+  vim.schedule_wrap(function(err, filename, status)
+    if err then
+      vim.notify('Error watching theme file: ' .. err, vim.log.levels.ERROR)
+      return
+    end
+    apply_theme()
+  end)
+)
