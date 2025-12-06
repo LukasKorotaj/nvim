@@ -12,7 +12,8 @@ return {
 
         { '<leader>Ob', '<cmd>Obsidian backlinks<cr>', desc = 'Backlinks', icon = { icon = '󰌹', color = 'cyan' } },
         { '<leader>Od', '<cmd>Obsidian dailies<cr>', desc = 'Dailies', icon = { icon = '󰃭', color = 'yellow' } },
-        { '<leader>Oe', '<cmd>Obsidian extract_note<cr>', desc = 'Extract Note', icon = { icon = '', color = 'purple' }, mode = 'v' },
+        { '<leader>OE', '<cmd>Obsidian extract_note<cr>', desc = 'Extract Note', icon = { icon = '', color = 'purple' }, mode = 'v' },
+        { '<leader>Om', '<cmd>ExtractNoteToMark /Flashcards/Endimb2/ l<cr>', desc = 'Extract', icon = { icon = '📖', color = 'purple' }, mode = 'v' },
         { '<leader>Of', '<cmd>Obsidian follow_link<cr>', desc = 'Follow Link', icon = { icon = '󰌷', color = 'blue' } },
         { '<leader>Ol', '<cmd>Obsidian link<cr>', desc = 'Link Selection', icon = { icon = '󰌹', color = 'green' }, mode = 'v' },
         { '<leader>On', '<cmd>Obsidian link_new<cr>', desc = 'New Link', icon = { icon = '󰌹', color = 'green' }, mode = 'v' },
@@ -32,6 +33,7 @@ return {
         { '<leader>Ox', '<cmd>Obsidian toggle_checkbox<cr>', desc = 'Toggle Checkbox', icon = { icon = '', color = 'green' } },
         { '<leader>Ow', '<cmd>Obsidian workspace<cr>', desc = 'Switch Workspace', icon = { icon = '󰙴', color = 'purple' } },
         { '<leader>OY', '<cmd>Obsidian yesterday<cr>', desc = 'Yesterday', icon = { icon = '󰃭', color = 'red' } },
+        { '<leader>OO', '<cmd>ObsidianBridgeOpenCurrentActiveFile<cr>', desc = 'Open file in Obsidian', icon = { icon = '📖', color = 'purple' } },
       },
       icons = {
         group = '󰋼',

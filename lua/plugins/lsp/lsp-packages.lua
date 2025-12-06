@@ -155,6 +155,8 @@ return {
       'jdtls',
       'black',
       'pyright',
+      'bash-language-server',
+      'shellcheck',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

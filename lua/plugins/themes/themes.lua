@@ -10,6 +10,7 @@ local themes = {
   { repo = 'rose-pine/neovim', name = 'rose-pine', mode = 'light' },
   { repo = 'folke/tokyonight.nvim', name = 'tokyonight', mode = 'dark' },
   { repo = 'gthelding/monokai-pro.nvim', name = 'monokai-pro-ristretto', mode = 'dark' },
+  { repo = 'Mofiqul/dracula.nvim', name = 'dracula' },
 }
 
 local theme_file = vim.fn.expand '$HOME/.config/nvim/lua/config/theme.txt'
