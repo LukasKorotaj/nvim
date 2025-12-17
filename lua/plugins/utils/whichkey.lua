@@ -2,12 +2,19 @@ return {
   {
     'folke/which-key.nvim',
     opts = {
+      preset = 'helix',
       plugins = {
         marks = false,
         registers = true,
         spelling = true,
       },
       spec = {
+        { '<leader>f', group = 'Files', icon = { icon = '', color = 'blue' } },
+        { '<leader>g', group = 'Git', icon = { icon = '', color = 'green' } },
+        { '<leader>s', group = 'Show', icon = { icon = '🔎', color = 'cyan' } },
+        { '<leader>u', group = 'Appearance', icon = { icon = '✨', color = 'yellow' } },
+        { '<Tab>b', group = 'Tabs', icon = { icon = '', color = 'yellow' } },
+
         { '<leader>O', group = 'Obsidian', icon = { icon = '', color = 'purple' } },
 
         { '<leader>Ob', '<cmd>Obsidian backlinks<cr>', desc = 'Backlinks', icon = { icon = '󰌹', color = 'cyan' } },
@@ -36,7 +43,7 @@ return {
         { '<leader>OO', '<cmd>ObsidianBridgeOpenCurrentActiveFile<cr>', desc = 'Open file in Obsidian', icon = { icon = '📖', color = 'purple' } },
       },
       icons = {
-        group = '󰋼',
+        group = ' ',
       },
     },
   },

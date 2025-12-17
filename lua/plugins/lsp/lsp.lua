@@ -1,3 +1,5 @@
+local language = vim.lsp.config
+
 return {
   {
     'mason-org/mason-lspconfig.nvim',
@@ -8,11 +10,18 @@ return {
       'saghen/blink.cmp',
     },
   },
-  vim.lsp.config('rust_analyzer', {
+  language('rust_analyzer', {
     settings = {
       completion = { autoimport = true },
       procMacro = true,
       cargo = { loadOutDirsFromCheck = true },
+    },
+  }),
+  language('ltex', {
+    settings = {
+      ltex = {
+        language = 'sv',
+      },
     },
   }),
 }

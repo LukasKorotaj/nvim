@@ -14,6 +14,9 @@ keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', { desc = 'O
 keymap('n', 'j', 'gj')
 keymap('n', 'k', 'gk')
 
+-- Change markings
+keymap('n', 'mm', 'm', { desc = 'Set Mark' })
+
 -- Window navigation
 keymap('n', '<C-h>', '<C-w>h')
 keymap('n', '<C-j>', '<C-w>j')

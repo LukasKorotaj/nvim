@@ -21,10 +21,18 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
--- Setup lazy.nvim
-require('lazy').setup {
-  spec = {
-    -- import your plugins
+local plugins = {}
+
+if vim.g.vscode then
+  plugins = {
+    { import = 'plugins.themes' },
+    { import = 'plugins.editor' },
+    { import = 'plugins.utils' },
+    { import = 'plugins.git' },
+    { import = 'plugins.ui' },
+  }
+else
+  plugins = {
     { import = 'plugins.themes' },
     { import = 'plugins.editor' },
     { import = 'plugins.utils' },
@@ -33,8 +41,13 @@ require('lazy').setup {
     { import = 'plugins.git' },
     { import = 'plugins.snippets' },
     { import = 'plugins.ui' },
-    -- { import = "plugins.dap" },
-  },
+    { import = 'plugins.snacks' },
+  }
+end
+
+-- Setup lazy.nvim
+require('lazy').setup {
+  spec = plugins,
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { 'tokyonight' } },

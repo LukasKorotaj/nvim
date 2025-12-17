@@ -104,13 +104,13 @@ return {
         end,
         desc = 'Notification History',
       },
-      {
-        '<leader>e',
-        function()
-          Snacks.explorer()
-        end,
-        desc = 'File Explorer',
-      },
+      --      {
+      --        '<leader>e',
+      --        function()
+      --          Snacks.explorer()
+      --        end,
+      --        desc = 'File Explorer',
+      --      },
       -- find
       {
         '<leader>fb',
@@ -169,13 +169,14 @@ return {
         end,
         desc = 'Git Log',
       },
-      {
-        '<leader>gL',
-        function()
-          Snacks.picker.git_log_line()
-        end,
-        desc = 'Git Log Line',
-      },
+      --      {
+      -- doesnt work
+      --        '<leader>gL',
+      --        function()
+      --          Snacks.picker.git_log_line()
+      --        end,
+      --        desc = 'Git Log Line',
+      --      },
       {
         '<leader>gs',
         function()
@@ -398,7 +399,7 @@ return {
         desc = 'Goto Declaration',
       },
       {
-        'gr',
+        'grr',
         function()
           Snacks.picker.lsp_references()
         end,
@@ -470,14 +471,14 @@ return {
         desc = 'Notification History',
       },
       {
-        '<leader>bd',
+        '<leader>,d',
         function()
           Snacks.bufdelete()
         end,
         desc = 'Delete Buffer',
       },
       {
-        '<leader>cR',
+        '<leader>sr',
         function()
           Snacks.rename.rename_file()
         end,
@@ -519,22 +520,22 @@ return {
         end,
         desc = 'which_key_ignore',
       },
-      {
-        ']]',
-        function()
-          Snacks.words.jump(vim.v.count1)
-        end,
-        desc = 'Next Reference',
-        mode = { 'n', 't' },
-      },
-      {
-        '[[',
-        function()
-          Snacks.words.jump(-vim.v.count1)
-        end,
-        desc = 'Prev Reference',
-        mode = { 'n', 't' },
-      },
+      --{
+      --  ']]',
+      --  function()
+      --    Snacks.words.jump(vim.v.count1)
+      --  end,
+      --  desc = 'Next Reference',
+      --  mode = { 'n', 't' },
+      --},
+      --{
+      --  '[[',
+      --  function()
+      --    Snacks.words.jump(-vim.v.count1)
+      --  end,
+      --  desc = 'Prev Reference',
+      --  mode = { 'n', 't' },
+      --},
       {
         '<leader>N',
         desc = 'Neovim News',
