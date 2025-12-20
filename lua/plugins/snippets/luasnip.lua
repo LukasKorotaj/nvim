@@ -17,6 +17,8 @@ return {
 
     require('luasnip.loaders.from_vscode').lazy_load()
 
+    require('luasnip').filetype_extend('quarto', { 'markdown', 'python' })
+
     vim.keymap.set({ 'i', 's' }, '<c-l>', function()
       require('luasnip').expand_or_jump()
     end, { silent = true })

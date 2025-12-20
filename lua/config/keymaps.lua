@@ -4,11 +4,34 @@ vim.g.maplocalleader = '\\'
 
 local keymap = vim.keymap.set
 
+local diagwin = function()
+  local editor_width = vim.o.columns
+  local win_width = math.floor(editor_width * 0.3)
+  local win_height = math.floor(vim.o.lines * 0.3)
+
+  vim.diagnostic.open_float {
+    -- DATA SOURCE: Explicitly target the line we checked
+    scope = 'line',
+    zindex = 200,
+
+    -- UI / VISUALS
+    focusable = false,
+    close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter', 'FocusLost' },
+    border = 'rounded',
+    prefix = '🤓 ',
+    source = 'if_many',
+
+    -- WINDOW POSITIONING (The HUD Logic)
+    relative = 'editor',
+    offset_x = vim.o.columns,
+
+    max_width = win_width,
+    max_height = win_height,
+  }
+end
+
 -- Clear highlights
 keymap('n', '<Esc>', ':nohlsearch<CR>', { desc = 'Clear highlights' })
-
--- Open diagnostics
-keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', { desc = 'Open diagnostics' })
 
 -- Better vertical movement
 keymap('n', 'j', 'gj')
@@ -24,7 +47,7 @@ keymap('n', '<C-k>', '<C-w>k')
 keymap('n', '<C-l>', '<C-w>l')
 
 -- Diagnostics
-keymap('n', '<leader>o', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
+keymap('n', '<leader>o', diagwin, { desc = 'Line Diagnostics' })
 
 -- Tabs
 keymap('n', '<tab><tab>', '<cmd>tabnew<cr>', { desc = 'New Tab' })

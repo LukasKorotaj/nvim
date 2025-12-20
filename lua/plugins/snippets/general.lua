@@ -8,30 +8,17 @@ local fmt = require('luasnip.extras.fmt').fmt
 return {
   ls.add_snippets('markdown', {
     s(
-      'anki',
+      'dm',
       fmt(
         [[
-    START
-    Basic
-    TARGET DECK: {}
+    $$
     {}
-    Back: {}
-    END
+    $$
     ]],
         {
-          i(1, 'Deck'),
-          i(2, 'Front'),
-          i(3, 'Back'),
+          i(1, 'E = mc^2'),
         }
       )
-    ),
-    s(
-      'inline_anki',
-      fmt([[STARTI Basic TARGET DECK: {} {} Back: {} ENDI]], {
-        i(1, 'Deck'),
-        i(2, 'Front'),
-        i(3, 'Back'),
-      })
     ),
   }),
 }

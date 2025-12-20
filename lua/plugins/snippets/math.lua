@@ -35,27 +35,31 @@ local k = require('luasnip.nodes.key_indexer').new_key
 -- Math zone context
 -- taken from https://ejmastnak.com/
 
+-- Default state
+_G.manual_math_mode = false
+
+-- The function you use in your snippets
 local function in_mathzone()
-  local ok, node = pcall(function()
-    return vim.treesitter.get_node {
-      ignore_injections = false,
-      include_anonymous = true,
-    }
-  end)
-
-  if not ok or not node then
-    return false
-  end
-
-  while node do
-    if node:type() == 'latex_block' then
-      return true
-    end
-    node = node:parent()
-  end
-
-  return false
+  return _G.manual_math_mode
 end
+
+-- The toggle function
+local function toggle_math()
+  _G.manual_math_mode = not _G.manual_math_mode
+
+  -- Optional: Print status so you know where you are
+  if _G.manual_math_mode then
+    print 'Math Mode: ON'
+  else
+    print 'Math Mode: OFF'
+  end
+end
+
+vim.keymap.set({ 'i', 'n', 'v' }, '<C-m>', function()
+  -- We use <C-o> to run the lua function without leaving insert mode completely if needed,
+  -- but calling the function directly works fine in nvim lua keymaps.
+  toggle_math()
+end, { desc = 'Toggle Math Mode' })
 
 -- Visual placeholder
 -- taken from https://ejmastnak.com/

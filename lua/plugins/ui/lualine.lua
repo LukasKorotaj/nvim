@@ -42,6 +42,15 @@ return {
         },
         lualine_x = {
           {
+            function()
+              return '∑'
+            end,
+            cond = function()
+              return _G.manual_math_mode
+            end,
+            color = { fg = '#ff9e64' }, -- Orange to warn you it's on
+          },
+          {
             'filetype',
             icon_only = true,
             separator = '',

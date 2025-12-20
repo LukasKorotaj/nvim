@@ -10,9 +10,12 @@ return {
       },
       spec = {
         { '<leader>f', group = 'Files', icon = { icon = '', color = 'blue' } },
+        { '<leader>x', group = 'Trouble', icon = { icon = '', color = 'green' } },
+        { '<leader>m', group = 'Molten', icon = { icon = '', color = 'red' } },
         { '<leader>g', group = 'Git', icon = { icon = '', color = 'green' } },
-        { '<leader>s', group = 'Show', icon = { icon = '🔎', color = 'cyan' } },
-        { '<leader>u', group = 'Appearance', icon = { icon = '✨', color = 'yellow' } },
+        { '<leader>s', group = 'Show', icon = { icon = '', color = 'cyan' } },
+        { '<leader>u', group = 'Appearance', icon = { icon = '', color = 'yellow' } },
+        { '<leader>q', group = 'Quarto', icon = { icon = '󱔎', color = 'green' } },
         { '<Tab>b', group = 'Tabs', icon = { icon = '', color = 'yellow' } },
 
         { '<leader>O', group = 'Obsidian', icon = { icon = '', color = 'purple' } },
