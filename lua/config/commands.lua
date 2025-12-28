@@ -79,7 +79,10 @@ local Terminal = require('toggleterm.terminal').Terminal
 local ipython = Terminal:new {
   cmd = 'ipython',
   hidden = true,
-  direction = 'horizontal',
+  direction = 'vertical',
+  size = function()
+    return vim.o.columns * 0.5
+  end,
 }
 
 function _IPYTHON_TOGGLE()

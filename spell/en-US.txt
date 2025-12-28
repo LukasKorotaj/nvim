@@ -3,3 +3,12 @@ apio
 Apio
 verilator
 Guberina
+cocotb
+terosHDL
+Korotaj
+anki
+Karnaugh
+SystemVerilog
+Combinational
+Nonblocking
+combinational
