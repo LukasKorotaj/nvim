@@ -29,6 +29,7 @@ vim.opt.scrolloff = 10
 vim.opt.completeopt = { 'menuone', 'noinsert', 'noselect', 'popup' }
 vim.opt.conceallevel = 1
 vim.opt.nrformats = {}
+vim.opt.virtualedit = 'block'
 
 -- neovide
 vim.g.neovide_cursor_animation_length = 0.0
