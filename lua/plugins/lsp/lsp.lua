@@ -132,4 +132,7 @@ return {
     filetypes = { 'markkdown', 'markdown.mdx', 'quarto' },
     root_markers = { '.marksman.toml', '.git', 'index.qmd' },
   }),
+  language('qmlls', {
+    cmd = { 'qmlls6', '-E' },
+  }),
 }
