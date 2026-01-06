@@ -89,7 +89,7 @@ return {
       vim.keymap.set({ 'n', 'x', 'o' }, ']m', function()
         require('nvim-treesitter-textobjects.move').goto_next_start('@function.outer', 'textobjects')
       end)
-      vim.keymap.set({ 'n', 'x', 'o' }, ']]', function()
+      vim.keymap.set({ 'n', 'x', 'o' }, ']c', function()
         require('nvim-treesitter-textobjects.move').goto_next_start('@class.outer', 'textobjects')
       end)
       -- You can also pass a list to group multiple queries.
@@ -114,7 +114,7 @@ return {
       vim.keymap.set({ 'n', 'x', 'o' }, '[m', function()
         require('nvim-treesitter-textobjects.move').goto_previous_start('@function.outer', 'textobjects')
       end)
-      vim.keymap.set({ 'n', 'x', 'o' }, '[[', function()
+      vim.keymap.set({ 'n', 'x', 'o' }, '[c', function()
         require('nvim-treesitter-textobjects.move').goto_previous_start('@class.outer', 'textobjects')
       end)
 

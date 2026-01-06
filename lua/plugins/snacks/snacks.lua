@@ -80,7 +80,20 @@ return {
       quickfile = { enabled = false },
       scope = { enabled = true },
       scroll = { enabled = false },
-      statuscolumn = { enabled = true },
+      statuscolumn = {
+        enabled = true,
+        left = { 'mark', 'sign' }, -- priority of signs on the left (high to low)
+        right = { 'fold', 'git' }, -- priority of signs on the right (high to low)
+        folds = {
+          open = false, -- show open fold icons
+          git_hl = false, -- use Git Signs hl for fold icons
+        },
+        git = {
+          -- patterns to match Git signs
+          patterns = { 'GitSign', 'MiniDiffSign' },
+        },
+        refresh = 50, -- refresh at most every 50ms
+      },
       words = { enabled = true },
       styles = {
         notification = {},
@@ -563,22 +576,22 @@ return {
         end,
         desc = 'Toggle the Calculator (IPython)',
       },
-      --{
-      --  ']]',
-      --  function()
-      --    Snacks.words.jump(vim.v.count1)
-      --  end,
-      --  desc = 'Next Reference',
-      --  mode = { 'n', 't' },
-      --},
-      --{
-      --  '[[',
-      --  function()
-      --    Snacks.words.jump(-vim.v.count1)
-      --  end,
-      --  desc = 'Prev Reference',
-      --  mode = { 'n', 't' },
-      --},
+      {
+        ']]',
+        function()
+          Snacks.words.jump(vim.v.count1)
+        end,
+        desc = 'Next Reference',
+        mode = { 'n', 't' },
+      },
+      {
+        '[[',
+        function()
+          Snacks.words.jump(-vim.v.count1)
+        end,
+        desc = 'Prev Reference',
+        mode = { 'n', 't' },
+      },
       {
         '<leader>N',
         desc = 'Neovim News',

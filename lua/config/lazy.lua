@@ -28,7 +28,6 @@ if vim.g.vscode then
     { import = 'plugins.themes' },
     { import = 'plugins.editor' },
     { import = 'plugins.utils' },
-    { import = 'plugins.git' },
     { import = 'plugins.ui' },
   }
 else
