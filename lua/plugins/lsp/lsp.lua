@@ -123,7 +123,7 @@ return {
   language('ltex', {
     settings = {
       ltex = {
-        language = 'sv',
+        language = 'en-US',
         dictionary = dicts,
       },
     },
