@@ -74,19 +74,4 @@ end, {
   range = true, -- This makes it work with visual selection
 })
 
-local Terminal = require('toggleterm.terminal').Terminal
-
-local ipython = Terminal:new {
-  cmd = 'ipython',
-  hidden = true,
-  direction = 'vertical',
-  size = function()
-    return vim.o.columns * 0.5
-  end,
-}
-
-function _IPYTHON_TOGGLE()
-  ipython:toggle()
-end
-
 vim.keymap.set('n', '<c-]>', '<cmd>lua _IPYTHON_TOGGLE()<CR>', { noremap = true, silent = true, desc = 'Toggle IPython' })

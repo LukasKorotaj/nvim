@@ -10,6 +10,7 @@ return {
       },
       spec = {
         { '<leader>f', group = 'Files', icon = { icon = '', color = 'blue' } },
+        { '<leader>t', group = 'Terminal', icon = { icon = ' ', color = 'green' } },
         { '<leader>x', group = 'Trouble', icon = { icon = '', color = 'green' } },
         { '<leader>m', group = 'Molten', icon = { icon = '', color = 'red' } },
         { '<leader>g', group = 'Git', icon = { icon = '', color = 'green' } },

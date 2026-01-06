@@ -11,6 +11,7 @@ local themes = {
   { repo = 'folke/tokyonight.nvim', name = 'tokyonight', mode = 'dark' },
   { repo = 'gthelding/monokai-pro.nvim', name = 'monokai-pro-ristretto', mode = 'dark' },
   { repo = 'Mofiqul/dracula.nvim', name = 'dracula' },
+  { repo = 'eldritch-theme/eldritch.nvim', name = 'eldritch' },
 }
 
 local theme_file = vim.fn.expand '$HOME/.config/nvim/lua/config/theme.txt'

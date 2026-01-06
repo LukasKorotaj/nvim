@@ -48,6 +48,15 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
+      terminal = {
+        enabled = true,
+        win = {
+          position = 'float',
+          border = 'rounded',
+          width = 0.5,
+          height = 0.5,
+        },
+      },
       bigfile = { enabled = true },
       dashboard = { enabled = false },
       explorer = { enabled = true, replace_netrw = true, trash = true },
@@ -514,6 +523,45 @@ return {
           Snacks.notifier.hide()
         end,
         desc = 'Dismiss All Notifications',
+      },
+      {
+        'TT',
+        function()
+          Snacks.terminal.open(nil, {
+            count = 2,
+          })
+        end,
+        desc = 'Toggle the Terminal (Floating)',
+      },
+      {
+        'Ts',
+        function()
+          Snacks.terminal.open(nil, {
+            count = 1,
+            win = {
+              position = 'bottom',
+              height = 10,
+            },
+          })
+        end,
+        desc = 'Toggle the Terminal (Small)',
+      },
+      {
+        'Tr',
+        function()
+          Snacks.terminal.open('ipython', {
+            count = 3,
+            win = {
+              position = 'float',
+              width = 0.4,
+              height = 0.8,
+              col = 0.95,
+              row = 0.5,
+              border = 'rounded',
+            },
+          })
+        end,
+        desc = 'Toggle the Calculator (IPython)',
       },
       --{
       --  ']]',
