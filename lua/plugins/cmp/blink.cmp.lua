@@ -46,12 +46,12 @@ return {
     },
 
     sources = {
-      default = { 'lsp', 'path', 'buffer', 'snippets', 'lazydev', 'obsidian_tags', 'obsidian', 'obsidian_new' },
+      default = { 'lsp', 'path', 'buffer', 'snippets' },
+      per_filetype = {
+        lua = { inherit_defaults = true, 'lazydev' },
+      },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-        obsidian = { module = 'obsidian.completion.sources.blink.refs', max_items = 10 },
-        obsidian_new = { module = 'obsidian.completion.sources.blink.new', max_items = 2 },
-        obsidian_tags = { module = 'obsidian.completion.sources.blink.tags', max_items = 10 },
         buffer = { max_items = 10 },
       },
       min_keyword_length = 2,
