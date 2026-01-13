@@ -13,3 +13,5 @@ Combinational
 Nonblocking
 combinational
 Lund
+clangd
+neovim

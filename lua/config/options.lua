@@ -30,6 +30,15 @@ vim.opt.completeopt = { 'menuone', 'noinsert', 'noselect', 'popup' }
 vim.opt.conceallevel = 1
 vim.opt.nrformats = {}
 vim.opt.virtualedit = 'block'
+vim.opt.sessionoptions = {
+  'buffers',
+  'curdir',
+  'tabpages',
+  'winsize',
+  'help',
+  'globals',
+  'folds',
+}
 
 -- neovide
 vim.g.neovide_cursor_animation_length = 0.0

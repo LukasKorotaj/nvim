@@ -121,6 +121,7 @@ return {
     },
   }),
   language('ltex', {
+    filetypes = { 'bib', 'gitcommit', 'markdown', 'org', 'plaintex', 'rst', 'rnoweb', 'tex', 'pandoc', 'quarto', 'rmd', 'context', 'html', 'xhtml', 'mail' },
     settings = {
       ltex = {
         language = 'en-US',
