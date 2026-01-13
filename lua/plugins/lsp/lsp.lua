@@ -126,6 +126,7 @@ return {
       ltex = {
         language = 'en-US',
         dictionary = dicts,
+        checkFrequency = 'save',
       },
     },
   }),
