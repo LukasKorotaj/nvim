@@ -106,6 +106,15 @@ function M.extract_text(data)
   -- add the selected text to the end of the new note
   note:open { sync = true }
   vim.api.nvim_buf_set_lines(0, -1, -1, false, content)
+end -- Add this to your lua/utils/functions.lua
+
+function M.get_uv_venv()
+  local venv = os.getenv 'VIRTUAL_ENV'
+  if venv then
+    -- Returns just the name of the venv folder
+    return '🐍 ' .. venv:match '([^/]+)$'
+  end
+  return ''
 end
 
 return M

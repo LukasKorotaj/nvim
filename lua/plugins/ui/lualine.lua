@@ -51,6 +51,9 @@ return {
             color = { fg = '#ff9e64' }, -- Orange to warn you it's on
           },
           {
+            require('utils.functions').get_uv_venv(),
+          },
+          {
             'filetype',
             icon_only = true,
             separator = '',
