@@ -120,25 +120,8 @@ return {
       cargo = { loadOutDirsFromCheck = true },
     },
   }),
-  language('ltex_plus', {
-    filetypes = {
-      'typst',
-      'bib',
-      'gitcommit',
-      'markdown',
-      'org',
-      'plaintex',
-      'rst',
-      'rnoweb',
-      'tex',
-      'pandoc',
-      'quarto',
-      'rmd',
-      'context',
-      'html',
-      'xhtml',
-      'mail',
-    },
+  language('ltex', {
+    filetypes = { 'bib', 'gitcommit', 'markdown', 'org', 'plaintex', 'rst', 'rnoweb', 'tex', 'pandoc', 'quarto', 'rmd', 'context', 'html', 'xhtml', 'mail' },
     settings = {
       ltex = {
         language = 'en-US',

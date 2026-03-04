@@ -31,6 +31,7 @@ return {
     completion = {
       nvim_cmp = false,
       blink = true,
+      min_chars = 2,
       create_new = true,
     },
     ui = {
